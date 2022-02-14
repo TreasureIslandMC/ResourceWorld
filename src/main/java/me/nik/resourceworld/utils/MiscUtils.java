@@ -5,6 +5,8 @@ import me.nik.resourceworld.managers.custom.ResourceWorldException;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +28,7 @@ public class MiscUtils {
      * @param millis A duration to convert to a string form
      * @return A string of the form "X Days Y Hours Z Minutes A Seconds".
      */
-    public static String getDurationBreakdown(long millis) {
+    public static @NotNull String getDurationBreakdown(long millis) {
         final long days = TimeUnit.MILLISECONDS.toDays(millis);
         millis -= TimeUnit.DAYS.toMillis(days);
         final long hours = TimeUnit.MILLISECONDS.toHours(millis);
@@ -79,7 +81,7 @@ public class MiscUtils {
      * @param location The location
      * @return The location as a string
      */
-    public static String locationToString(final Location location) {
+    public static @NotNull String locationToString(final @NotNull Location location) {
         return location.getX() + "," +
                 location.getY() + "," +
                 location.getZ() + "," +
@@ -92,7 +94,7 @@ public class MiscUtils {
      * @param location The location as a string
      * @return The bukkit location
      */
-    public static Location stringToLocation(final String location) {
+    public static @Nullable Location stringToLocation(final @NotNull String location) {
         final String[] data = location.split(",");
 
         try {

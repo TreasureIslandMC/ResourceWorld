@@ -26,7 +26,7 @@ public class LocationFinder {
         int z;
 
         switch (environment) {
-            case NETHER:
+            case NETHER -> {
                 x = randomInt(Config.Setting.TELEPORT_NETHER_MAX_RANGE.getInt());
                 y = 60;
                 z = randomInt(Config.Setting.TELEPORT_NETHER_MAX_RANGE.getInt());
@@ -42,7 +42,8 @@ public class LocationFinder {
                     randomLocation = generateLocation(world);
                 }
                 return randomLocation;
-            case THE_END:
+            }
+            case THE_END -> {
                 x = randomInt(Config.Setting.TELEPORT_END_MAX_RANGE.getInt());
                 z = randomInt(Config.Setting.TELEPORT_END_MAX_RANGE.getInt());
                 randomLocation = new Location(world, x, y, z);
@@ -53,7 +54,8 @@ public class LocationFinder {
                     randomLocation = generateLocation(world);
                 }
                 return randomLocation;
-            default:
+            }
+            default -> {
                 x = randomInt(Config.Setting.TELEPORT_WORLD_MAX_RANGE.getInt());
                 z = randomInt(Config.Setting.TELEPORT_WORLD_MAX_RANGE.getInt());
                 boolean safee = false;
@@ -68,6 +70,7 @@ public class LocationFinder {
                     randomLocation = generateLocation(world);
                 }
                 return randomLocation;
+            }
         }
     }
 

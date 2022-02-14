@@ -3,6 +3,8 @@ package me.nik.resourceworld.utils;
 import me.nik.resourceworld.managers.custom.ResourceWorldException;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 public class Messenger {
 
@@ -14,7 +16,8 @@ public class Messenger {
      * @param msg The message to format
      * @return The formatted message
      */
-    public static String format(String msg) {
+    @Contract("_ -> new")
+    public static @NotNull String format(String msg) {
         return ChatColor.translateAlternateColorCodes('&', msg);
     }
 
