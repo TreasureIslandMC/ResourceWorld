@@ -48,6 +48,10 @@
                                     <pattern>io.papermc.lib</pattern>
                                     <shadedPattern>me.nik.resourceworld.libs.paperlib</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>org.bstats</pattern>
+                                    <shadedPattern>me.nik.resourceworld.libs.bstats</shadedPattern>
+                                </relocation>
                             </relocations>
                         </configuration>
                     </execution>
@@ -115,6 +119,11 @@
             <version>1.7.1</version>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.bstats</groupId>
+            <artifactId>bstats-bukkit</artifactId>
+            <version>3.0.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

@@ -35,6 +35,7 @@ import me.nik.resourceworld.tasks.ResetNetherWorld;
 import me.nik.resourceworld.tasks.ResetWorld;
 import me.nik.resourceworld.utils.Messenger;
 import net.milkbowl.vault.economy.Economy;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.Difficulty;
 import org.bukkit.World;
@@ -134,7 +135,7 @@ public final class ResourceWorld extends JavaPlugin {
             new PapiHook(this).register();
         }
 
-        new MetricsLite(this, 6981);
+        new Metrics(this, 6981);
     }
 
     private void initWorlds() {
