@@ -11,7 +11,6 @@ import me.nik.resourceworld.managers.PapiHook;
 import me.nik.resourceworld.managers.UpdateChecker;
 import me.nik.resourceworld.managers.custom.CustomWorld;
 import me.nik.resourceworld.managers.custom.ResourceWorldType;
-import me.nik.resourceworld.metrics.MetricsLite;
 import me.nik.resourceworld.modules.ListenerModule;
 import me.nik.resourceworld.modules.impl.Drowning;
 import me.nik.resourceworld.modules.impl.LeaveWorld;
