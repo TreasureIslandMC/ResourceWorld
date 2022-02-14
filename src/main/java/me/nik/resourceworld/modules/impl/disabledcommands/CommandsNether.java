@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.jetbrains.annotations.NotNull;
 
 public class CommandsNether extends ListenerModule {
 
@@ -17,7 +18,7 @@ public class CommandsNether extends ListenerModule {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void disableWorldCommands(PlayerCommandPreprocessEvent e) {
+    public void disableWorldCommands(@NotNull PlayerCommandPreprocessEvent e) {
         Player p = e.getPlayer();
         if (p.hasPermission(Permissions.ADMIN.getPermission())) return;
         if (p.getWorld().getName().equals(Config.Setting.NETHER_NAME.getString())) {

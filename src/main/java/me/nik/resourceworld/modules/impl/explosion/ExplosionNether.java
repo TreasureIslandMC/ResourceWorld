@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.jetbrains.annotations.NotNull;
 
 public class ExplosionNether extends ListenerModule {
 
@@ -16,7 +17,7 @@ public class ExplosionNether extends ListenerModule {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void onExplode(EntityExplodeEvent e) {
+    public void onExplode(@NotNull EntityExplodeEvent e) {
         Entity entity = e.getEntity();
         String world = entity.getWorld().getName();
         if (!world.equals(Config.Setting.NETHER_NAME.getString())) return;
@@ -24,8 +25,8 @@ public class ExplosionNether extends ListenerModule {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void onDamageByExplosion(EntityDamageEvent e) {
-        if (!(e.getCause() == EntityDamageEvent.DamageCause.ENTITY_EXPLOSION)) return;
+    public void onDamageByExplosion(@NotNull EntityDamageEvent e) {
+        if (e.getCause() != EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) return;
         Entity entity = e.getEntity();
         String world = entity.getWorld().getName();
         if (!world.equals(Config.Setting.NETHER_NAME.getString())) return;

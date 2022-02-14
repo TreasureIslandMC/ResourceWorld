@@ -6,6 +6,7 @@ import me.nik.resourceworld.modules.ListenerModule;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.jetbrains.annotations.NotNull;
 
 public class Drowning extends ListenerModule {
     public Drowning(ResourceWorld plugin) {
@@ -13,12 +14,14 @@ public class Drowning extends ListenerModule {
     }
 
     @EventHandler
-    public void onDamage(EntityDamageEvent e) {
-        if (!(e.getEntity() instanceof Player)) return;
-        if (!(e.getCause() == EntityDamageEvent.DamageCause.DROWNING)) return;
-        final Player p = (Player) e.getEntity();
-        final String world = p.getWorld().getName();
-        if (!world.equals(Config.Setting.WORLD_NAME.getString())) return;
+    public void onDamage(@NotNull EntityDamageEvent e) {
+        if (!(e.getEntity() instanceof final Player player))
+            return;
+        if (e.getCause() != EntityDamageEvent.DamageCause.DROWNING)
+            return;
+        final String world = player.getWorld().getName();
+        if (!world.equals(Config.Setting.WORLD_NAME.getString()))
+            return;
         e.setCancelled(true);
     }
 }

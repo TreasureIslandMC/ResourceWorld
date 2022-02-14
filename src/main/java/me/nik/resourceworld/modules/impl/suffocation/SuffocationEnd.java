@@ -15,9 +15,8 @@ public class SuffocationEnd extends ListenerModule {
 
     @EventHandler
     public void onDamage(EntityDamageEvent e) {
-        if (!(e.getEntity() instanceof Player)) return;
-        if (!(e.getCause() == EntityDamageEvent.DamageCause.SUFFOCATION)) return;
-        Player p = (Player) e.getEntity();
+        if (!(e.getEntity() instanceof Player p)) return;
+        if (e.getCause() != EntityDamageEvent.DamageCause.SUFFOCATION) return;
         String world = p.getWorld().getName();
         if (!world.equals(Config.Setting.END_NAME.getString())) return;
         e.setCancelled(true);

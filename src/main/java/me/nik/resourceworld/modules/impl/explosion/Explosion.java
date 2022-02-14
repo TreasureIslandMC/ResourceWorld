@@ -25,7 +25,7 @@ public class Explosion extends ListenerModule {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onDamageByExplosion(EntityDamageEvent e) {
-        if (!(e.getCause() == EntityDamageEvent.DamageCause.ENTITY_EXPLOSION)) return;
+        if (e.getCause() != EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) return;
         Entity entity = e.getEntity();
         String world = entity.getWorld().getName();
         if (!world.equals(Config.Setting.WORLD_NAME.getString())) return;

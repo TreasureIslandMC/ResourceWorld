@@ -9,7 +9,7 @@ public abstract class ListenerModule implements Listener {
     protected final ResourceWorld plugin;
     private final boolean enabled;
 
-    public ListenerModule(boolean enabled, ResourceWorld plugin) {
+    protected ListenerModule(boolean enabled, ResourceWorld plugin) {
         this.enabled = enabled;
         this.plugin = plugin;
     }

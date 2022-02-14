@@ -16,7 +16,7 @@ public class MiscUtils {
         throw new ResourceWorldException("This is a static class dummy!");
     }
 
-    private static final boolean legacy = Bukkit.getVersion().contains("1.8")
+    private static final boolean LEGACY = Bukkit.getVersion().contains("1.8")
             || Bukkit.getVersion().contains("1.9")
             || Bukkit.getVersion().contains("1.10")
             || Bukkit.getVersion().contains("1.11")
@@ -112,6 +112,6 @@ public class MiscUtils {
     }
 
     public static boolean isLegacy() {
-        return legacy;
+        return LEGACY;
     }
 }

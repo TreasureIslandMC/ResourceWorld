@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.world.ChunkLoadEvent;
+import org.jetbrains.annotations.NotNull;
 
 public class EntitySpawning extends ListenerModule {
 
@@ -17,7 +18,7 @@ public class EntitySpawning extends ListenerModule {
     }
 
     @EventHandler
-    public void onEntitySpawn(CreatureSpawnEvent e) {
+    public void onEntitySpawn(@NotNull CreatureSpawnEvent e) {
         LivingEntity entity = e.getEntity();
         if (entity instanceof Player) return;
         if (!entity.getWorld().getName().equals(Config.Setting.WORLD_NAME.getString())) return;
@@ -25,11 +26,10 @@ public class EntitySpawning extends ListenerModule {
     }
 
     @EventHandler
-    public void onChunkLoad(ChunkLoadEvent e) {
+    public void onChunkLoad(@NotNull ChunkLoadEvent e) {
         if (!e.getWorld().getName().equals(Config.Setting.WORLD_NAME.getString())) return;
         for (Entity entity : e.getChunk().getEntities()) {
-            if (!(entity instanceof LivingEntity)) continue;
-            LivingEntity ent = (LivingEntity) entity;
+            if (!(entity instanceof LivingEntity ent)) continue;
             if (ent instanceof Player) continue;
             ent.remove();
         }

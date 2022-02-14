@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.jetbrains.annotations.NotNull;
 
 public class LeaveWorld extends ListenerModule {
 
@@ -18,7 +19,7 @@ public class LeaveWorld extends ListenerModule {
     }
 
     @EventHandler(priority = EventPriority.LOWEST)
-    public void onLeave(PlayerQuitEvent e) {
+    public void onLeave(@NotNull PlayerQuitEvent e) {
 
         final Player p = e.getPlayer();
 
